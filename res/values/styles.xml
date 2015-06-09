@@ -1,0 +1,51 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+            
+        -->
+        
+     <item name="colorPrimary">@color/app_primary_color</item>
+    <item name="colorPrimaryDark">@color/app_primary_color_dark</item>
+    <item name="colorAccent">@color/app_primary_color</item>
+    
+      
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+     <item name="colorPrimary">@color/app_primary_color</item>
+    <item name="colorPrimaryDark">@color/app_primary_color_dark</item>
+    <item name="colorAccent">@color/app_primary_color</item>
+  <!--   <item name="android:navigationBarColor">@color/accent_color_blue</item>  -->
+     
+    </style>
+    
+    <style name="ForecastListStyle">
+        
+    </style>
+    
+    <!-- ActionBar style  -->
+    <style name="ActionBar.Solid.SunRise" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/sunrise_light_blue</item>
+    </style>
+    
+    <!--Main activity theme  -->
+    <style name="ForecastTheme" parent="AppTheme">
+        <item name="actionBarStyle">@style/ActionBar.Solid.SunRise</item>
+    </style>
+    
+    <style name="ActionBar.Solid.SunRise.NoTitle" parent="@style/ActionBar.Solid.SunRise">
+      <!--   <item name="displayOptions">useLogo | showHome</item> -->
+        <item name="logo">@drawable/ic_logo</item>
+    </style>
+
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="iriemo.bangaloreweather"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permissions required by the sync adapter -->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <permission
+        android:name="iriemo.bangaloreweather.LICENSE_TO_KILL"
+        android:label="Licenced to Kill"
+        android:protectionLevel="dangerous" >
+    </permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="iriemo.bangaloreweather.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="iriemo.bangaloreweather.DetailActivity"
+            android:label="@string/detail_activity"
+            android:parentActivityName="iriemo.bangaloreweather.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
+        </activity>
+        <activity
+            android:name="iriemo.bangaloreweather.SettingsActivity"
+            android:label="@string/settings_activity"
+            android:parentActivityName="iriemo.bangaloreweather.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
+        </activity>
+        <activity android:name="iriemo.bangaloreweather.ContentProviderExample" >
+        </activity>
+
+        <provider
+            android:name="iriemo.bangaloreweather.data.WeatherProvider"
+            android:authorities="@string/content_authority"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="iriemo.bangaloreweather.LICENSE_TO_KILL"
+            android:syncable="true" >
+        </provider>
+
+        <service android:name="iriemo.bangaloreweather.service.SunRiseService" >
+        </service>
+
+        <receiver
+            android:name="iriemo.bangaloreweather.service.SunRiseService$AlarmReceiver"
+            android:enabled="true" >
+        </receiver>
+
+        <!-- SyncAdapter's dummy authentication service -->
+        <service android:name="sync.SunRiseAuthenticatorService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <!-- The SyncAdapter service -->
+        <service
+            android:name="sync.SunRiseSyncService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+    </application>
+
+</manifest>

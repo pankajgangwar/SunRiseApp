@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+            android:title="@string/country_location">
+            
+			<EditTextPreference android:title="@string/pref_location_label"
+			    android:key="@string/pref_location_key"
+			    android:defaultValue="@string/pref_location_value"
+			    android:positiveButtonText="@string/ok"
+			    android:negativeButtonText="@string/cancel"
+			    android:dialogTitle="@string/pref_location_pincode"   />
+			
+	</PreferenceCategory>
+	
+    <PreferenceCategory
+            android:title="@string/temperature_units" >
+            
+			<ListPreference android:title="@string/pref_select_temperature_units" 
+			    android:key="@string/pref_temp_units_key"
+			    android:defaultValue="@string/pref_unit_default"
+			    android:entries="@array/units_list"
+			    android:entryValues="@array/units_list"
+			    android:dialogTitle="@string/pref_select_temperature_units"
+			    />
+			
+	</PreferenceCategory>
+	
+    <PreferenceCategory 
+        android:title="Toggle Notifications">
+        
+        <CheckBoxPreference android:title="@string/pref_enable_notifications_label"
+            android:key="@string/pref_enable_notifications_key"
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            />
+    </PreferenceCategory>
+	
+			
+</PreferenceScreen>
+
+<!-- From: file:/home/iriemo/NooBro_Workspace/BangaloreWeather/res/xml/pref_general.xml -->

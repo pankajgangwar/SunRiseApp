@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item android:id="@+id/settings"
+          android:showAsAction="never"
+          android:title="@string/action_settings"/>
+    
+    <item android:id="@+id/showLocation"
+        android:showAsAction="never"
+        android:title="@string/show_location"/>
+    
+   
+    
+</menu>
+<!-- From: file:/home/iriemo/NooBro_Workspace/BangaloreWeather/res/menu/main_activity_menu.xml -->

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="unspecified"><source path="/home/iriemo/NooBro_Workspace/BangaloreWeather/build/intermediates/exploded-aar/NooBro_Workspace/android-support-v7-appcompat-5.0/unspecified/assets"/></dataSet><dataSet config="main"><source path="/home/iriemo/NooBro_Workspace/BangaloreWeather/assets"/></dataSet><dataSet config="debug"><source path="/home/iriemo/NooBro_Workspace/BangaloreWeather/build-types/debug/assets"/></dataSet></merger>

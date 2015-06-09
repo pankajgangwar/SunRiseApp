@@ -1,0 +1,165 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	package
+		ADDED from AndroidManifest.xml:3:5
+	android:versionName
+		ADDED from AndroidManifest.xml:5:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:4:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-sdk
+ADDED from AndroidManifest.xml:7:5
+MERGED from com.android.support:appcompat-v7:22.1.1:20:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:9:9
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:8:9
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:11:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#android.permission.READ_USER_DICTIONARY
+ADDED from AndroidManifest.xml:13:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+uses-permission#android.permission.READ_SYNC_SETTINGS
+ADDED from AndroidManifest.xml:18:3
+	android:name
+		ADDED from AndroidManifest.xml:19:3
+uses-permission#android.permission.WRITE_SYNC_SETTINGS
+ADDED from AndroidManifest.xml:20:3
+	android:name
+		ADDED from AndroidManifest.xml:21:3
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from AndroidManifest.xml:22:3
+	android:name
+		ADDED from AndroidManifest.xml:23:3
+application
+ADDED from AndroidManifest.xml:25:5
+MERGED from com.android.support:appcompat-v7:22.1.1:22:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+	android:label
+		ADDED from AndroidManifest.xml:28:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:26:9
+	android:icon
+		ADDED from AndroidManifest.xml:27:9
+	android:theme
+		ADDED from AndroidManifest.xml:29:9
+activity#iriemo.bangaloreweather.MainActivity
+ADDED from AndroidManifest.xml:30:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:name
+		ADDED from AndroidManifest.xml:31:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:33:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:34:17
+	android:name
+		ADDED from AndroidManifest.xml:34:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:36:17
+	android:name
+		ADDED from AndroidManifest.xml:36:27
+activity#iriemo.bangaloreweather.DetailActivity
+ADDED from AndroidManifest.xml:40:9
+	android:label
+		ADDED from AndroidManifest.xml:41:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:42:13
+	android:name
+		ADDED from AndroidManifest.xml:40:19
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:44:15
+	android:name
+		ADDED from AndroidManifest.xml:44:26
+	android:value
+		ADDED from AndroidManifest.xml:45:17
+activity#iriemo.bangaloreweather.SettingsActivity
+ADDED from AndroidManifest.xml:49:9
+	android:label
+		ADDED from AndroidManifest.xml:51:14
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:50:14
+	android:name
+		ADDED from AndroidManifest.xml:49:19
+activity#iriemo.bangaloreweather.ContentProviderExample
+ADDED from AndroidManifest.xml:56:9
+	android:name
+		ADDED from AndroidManifest.xml:56:19
+provider#iriemo.bangaloreweather.data.WeatherProvider
+ADDED from AndroidManifest.xml:60:9
+	android:syncable
+		ADDED from AndroidManifest.xml:64:13
+	android:exported
+		ADDED from AndroidManifest.xml:63:13
+	android:authorities
+		ADDED from AndroidManifest.xml:60:19
+	android:enabled
+		ADDED from AndroidManifest.xml:62:13
+	android:permission
+		ADDED from AndroidManifest.xml:65:13
+	android:name
+		ADDED from AndroidManifest.xml:61:13
+service#iriemo.bangaloreweather.service.SunRiseService
+ADDED from AndroidManifest.xml:69:9
+	android:name
+		ADDED from AndroidManifest.xml:69:18
+receiver#iriemo.bangaloreweather.service.SunRiseService$AlarmReceiver
+ADDED from AndroidManifest.xml:73:9
+	android:enabled
+		ADDED from AndroidManifest.xml:74:13
+	android:name
+		ADDED from AndroidManifest.xml:73:19
+service#sync.SunRiseAuthenticatorService
+ADDED from AndroidManifest.xml:79:10
+	android:name
+		ADDED from AndroidManifest.xml:79:19
+intent-filter#android.accounts.AccountAuthenticator
+ADDED from AndroidManifest.xml:81:14
+action#android.accounts.AccountAuthenticator
+ADDED from AndroidManifest.xml:82:18
+	android:name
+		ADDED from AndroidManifest.xml:82:26
+meta-data#android.accounts.AccountAuthenticator
+ADDED from AndroidManifest.xml:85:14
+	android:resource
+		ADDED from AndroidManifest.xml:86:18
+	android:name
+		ADDED from AndroidManifest.xml:85:25
+service#sync.SunRiseSyncService
+ADDED from AndroidManifest.xml:91:10
+	android:exported
+		ADDED from AndroidManifest.xml:92:14
+	android:name
+		ADDED from AndroidManifest.xml:91:19
+intent-filter#android.content.SyncAdapter
+ADDED from AndroidManifest.xml:94:14
+action#android.content.SyncAdapter
+ADDED from AndroidManifest.xml:95:18
+	android:name
+		ADDED from AndroidManifest.xml:95:26
+meta-data#android.content.SyncAdapter
+ADDED from AndroidManifest.xml:98:14
+	android:resource
+		ADDED from AndroidManifest.xml:99:18
+	android:name
+		ADDED from AndroidManifest.xml:98:25
+permission#iriemo.bangaloreweather.LICENSE_TO_KILL
+ADDED from AndroidManifest.xml:104:5
+	android:label
+		ADDED from AndroidManifest.xml:106:9
+	android:protectionLevel
+		ADDED from AndroidManifest.xml:105:9
+	android:name
+		ADDED from AndroidManifest.xml:104:17

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="iriemo.bangaloreweather.DetailActivity"  >
+    
+<item android:id="@+id/shareWeatherInfo"
+        app:showAsAction="always"
+        android:title="@string/share_weather"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider" 
+       app:theme="@style/ThemeOverlay.AppCompat.Light"/>
+     
+<item android:id="@+id/detailSettings"
+    android:title="@string/action_settings"/>
+
+<!-- <item android:id="@+id/thirdActivity"
+    android:title="@string/third_activity"/>
+
+<item android:id="@+id/startService"
+    android:title="@string/start_service"/> -->
+</menu>
+<!-- From: file:/home/iriemo/NooBro_Workspace/BangaloreWeather/res/menu/detaila_activity_menu.xml -->
