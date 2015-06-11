@@ -1,6 +1,11 @@
 package iriemo.bangaloreweather;
 
-import java.net.URL;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,12 +14,6 @@ import java.util.Date;
 
 import iriemo.bangaloreweather.data.WeatherContract;
 import sync.SunRiseSyncAdapter;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.preference.PreferenceManager;
 
 public class Utility {
 
@@ -267,9 +266,32 @@ public class Utility {
         return -1;
     }
 
- /*   public static URL getArtUrlForWeatherCondition(){
-
-    }*/
+    public static String getArtUrlForWeatherCondition(Context context, int weatherId) {
+        if (weatherId >= 200 && weatherId <= 232) {
+            return context.getString(R.string.format_art_url, "storm");
+        } else if (weatherId >= 300 && weatherId <= 321) {
+            return context.getString(R.string.format_art_url, "light_rain");
+        } else if (weatherId >= 500 && weatherId <= 504) {
+            return context.getString(R.string.format_art_url, "rain");
+        } else if (weatherId == 511) {
+            return context.getString(R.string.format_art_url, "snow");
+        } else if (weatherId >= 520 && weatherId <= 531) {
+            return context.getString(R.string.format_art_url, "rain");
+        } else if (weatherId >= 600 && weatherId <= 622) {
+            return context.getString(R.string.format_art_url, "snow");
+        } else if (weatherId >= 701 && weatherId <= 761) {
+            return context.getString(R.string.format_art_url, "fog");
+        } else if (weatherId == 761 || weatherId == 781) {
+            return context.getString(R.string.format_art_url, "storm");
+        } else if (weatherId == 800) {
+            return context.getString(R.string.format_art_url, "clear");
+        } else if (weatherId == 801) {
+            return context.getString(R.string.format_art_url, "light_clouds");
+        } else if (weatherId >= 802 && weatherId <= 804) {
+            return context.getString(R.string.format_art_url, "clouds");
+        }
+        return null;
+    }
 
     public static boolean getNetworkStatus(Context ctx) {
         ConnectivityManager manager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);

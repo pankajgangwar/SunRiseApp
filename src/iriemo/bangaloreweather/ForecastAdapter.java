@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class ForecastAdapter extends CursorAdapter {
 
 	private final int VIEW_TYPE_TODAY = 0;
@@ -48,23 +50,34 @@ public class ForecastAdapter extends CursorAdapter {
 		int viewType = getItemViewType(cursor.getPosition());
 		
 		Log.i("Forecast Adapter : ", "Weather Id:  "+weatherId);
-		
+
+        int fallbackIconId;
+
 		switch (viewType) {
 		
 		case VIEW_TYPE_TODAY: {
-			viewHolder.iconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
-			
+//			viewHolder.iconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
+            fallbackIconId = Utility.getArtResourceForWeatherCondition(weatherId);
+
 			break;
 		}
 			
-		case VIEW_TYPE_FUTURE_DAY: {
-			viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
+//		case VIEW_TYPE_FUTURE_DAY: {
+            default: {
+//			viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
+            fallbackIconId = Utility.getIconResourceForWeatherCondition(weatherId);
 			break;
 		}
 
-		default:
-			break;
+		/*default:
+			break;*/
 		}
+
+        Glide.with(mContext)
+                .load(Utility.getArtUrlForWeatherCondition(mContext,weatherId))
+                .error(fallbackIconId)
+                .crossFade()
+                .into(viewHolder.iconView);
 		
 		
 		String dateString = cursor.getString(ForecastFragment.COL_WEATHER_DATE);

@@ -23,6 +23,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class DetailFragment extends Fragment implements LoaderCallbacks<Cursor> {
 
 	private String mLocation;
@@ -226,8 +228,14 @@ public class DetailFragment extends Fragment implements LoaderCallbacks<Cursor> 
 		 
 		 int weatherId = data.getInt(data.getColumnIndex(WeatherEntry.COLUMN_WEATHER_ID));
 		 
-		 mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
-		
+//		 mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
+
+        Glide.with(this)
+                .load(Utility.getArtUrlForWeatherCondition(getActivity(),weatherId))
+                .error(Utility.getArtResourceForWeatherCondition(weatherId))
+                .crossFade()
+                .into(mIconView);
+
 		 String date = data.getString(data.getColumnIndex(WeatherEntry.COLUMN_DATETEXT)); 
 		 
 		 String friendlyDayText = Utility.getDayName(getActivity(), date);
