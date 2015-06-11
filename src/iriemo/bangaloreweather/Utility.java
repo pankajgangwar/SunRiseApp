@@ -1,5 +1,6 @@
 package iriemo.bangaloreweather;
 
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -265,6 +266,10 @@ public class Utility {
         }
         return -1;
     }
+
+ /*   public static URL getArtUrlForWeatherCondition(){
+
+    }*/
 
     public static boolean getNetworkStatus(Context ctx) {
         ConnectivityManager manager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
