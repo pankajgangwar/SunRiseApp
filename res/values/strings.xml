@@ -48,9 +48,12 @@
     </string-array>
 
 
-    + <string name="pref_art_pack_sunrise" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_%s.png</string>
+    <string name="pref_art_pack_sunrise" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_%s.png</string>
+    <string name="pref_art_pack_cute_dogs" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-mdpi/art_%s.png</string>
 
-    + <string name="pref_art_pack_cute_dogs" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-mdpi/art_%s.png</string>
+
+    <!--<string name="pref_art_pack_sunrise" translatable="false">https://www.iriemo.com/sunrise/Archive/Colored/art_%s.png</string>
+    <string name="pref_art_pack_cute_dogs" translatable="false">https://www.iriemo.com/sunrise/Archive/Mono/art_%s.png</string>-->
 
     <string name="temperature_units">Temperature Units</string>
     <string name="show_location">Map Location</string>
@@ -105,5 +108,7 @@ Forecast: <xliff:g id="condition">%1$s</xliff:g> High: <xliff:g id="high">%2$s</
     <string name="pref_select_icon_pack">Select Icon pack</string>
     <string name="pref_icon_pack_default_value">@string/pref_art_pack_sunrise</string>
     <string name="pref_icon_pack_key">icon_pack</string>
+    <string name="gcm_sender_id">679719083280</string>
+    <string name="pref_user">user_pref</string>
 
 </resources>
