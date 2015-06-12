@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +30,7 @@ import org.json.JSONObject;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -43,6 +45,8 @@ import android.content.SharedPreferences;
 import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,6 +55,8 @@ import android.support.annotation.IntDef;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
+
+import com.bumptech.glide.Glide;
 
 public class SunRiseSyncAdapter extends AbstractThreadedSyncAdapter {
 
@@ -517,6 +523,31 @@ public class SunRiseSyncAdapter extends AbstractThreadedSyncAdapter {
                     String desc = cursor.getString(INDEX_SHORT_DESC);
 
                     int iconId = Utility.getIconResourceForWeatherCondition(weatherId);
+
+                    int artResourceId = Utility.getArtResourceForWeatherCondition(weatherId);
+                    String artUrl = Utility.getArtUrlForWeatherCondition(context, weatherId);
+
+
+                    @SuppressLint("InlinedApi")
+                    int largeIconWidth = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? context.getResources().getDimensionPixelSize(android.R.dimen.notification_large_icon_width)
+                            : context.getResources().getDimensionPixelSize(R.dimen.notification_large_icon_default);
+
+                    @SuppressLint("InlinedApi")
+                    int largeIconHeight = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? context.getResources().getDimensionPixelSize(android.R.dimen.notification_large_icon_height)
+                            : context.getResources().getDimensionPixelSize(R.dimen.notification_large_icon_default);
+
+                    Bitmap largeIcon;
+                    try{
+                        largeIcon = Glide.with(context)
+                                .load(artUrl)
+                                .asBitmap()
+                                .error(artResourceId)
+                                .fitCenter()
+                                .into(largeIconWidth,largeIconHeight).get();
+                    } catch (InterruptedException | ExecutionException e){
+                        largeIcon = BitmapFactory.decodeResource(context.getResources(),artResourceId);
+                    }
+
                     String title = context.getString(R.string.app_name);
 
                     boolean isMetric = Utility.isMetric(context);
@@ -534,6 +565,7 @@ public class SunRiseSyncAdapter extends AbstractThreadedSyncAdapter {
                             new NotificationCompat.Builder(getContext())
                                     .setSmallIcon(iconId)
                                     .setContentTitle(title)
+                                    .setLargeIcon(largeIcon)
                                     .setContentText(contentText);
 
                     // Make something interesting happen when the user clicks on the notification.
