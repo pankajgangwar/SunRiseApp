@@ -131,10 +131,8 @@ public class MainActivity extends AppCompatActivity implements Callback{
 			
 			DetailFragment fragment = new DetailFragment();
 			fragment.setArguments(args);
-			
 			getSupportFragmentManager().beginTransaction().replace(R.id.weather_detail_container, fragment).commit();
-			
-			
+
 		} else {
 			Intent intent = new Intent(this, DetailActivity.class).putExtra(DetailActivity.DATE_KEY, date);;
 			startActivity(intent);

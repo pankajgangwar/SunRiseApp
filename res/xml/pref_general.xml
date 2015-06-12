@@ -28,6 +28,19 @@
 			    android:dialogTitle="@string/pref_location_pincode"   />
 			
 	</PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:title="@string/icon_pack">
+
+        <ListPreference
+            android:title="@string/pref_select_icon_pack"
+            android:key="@string/pref_icon_pack_key"
+            android:defaultValue="@string/pref_icon_pack_default_value"
+            android:entries="@array/icon_list_options"
+            android:entryValues="@array/icon_list"
+            android:dialogTitle="@string/pref_select_icon_pack"/>
+
+    </PreferenceCategory>
 	
     <PreferenceCategory
             android:title="@string/temperature_units" >

@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import iriemo.bangaloreweather.data.WeatherContract;
 import sync.SunRiseSyncAdapter;
@@ -267,28 +268,44 @@ public class Utility {
     }
 
     public static String getArtUrlForWeatherCondition(Context context, int weatherId) {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String formatArtUrl = preferences.getString(context.getString(R.string.pref_icon_pack_key),context.getString(R.string.pref_art_pack_sunrise));
+
+
         if (weatherId >= 200 && weatherId <= 232) {
-            return context.getString(R.string.format_art_url, "storm");
+//            return context.getString(R.string.format_art_url, "storm");
+            return String.format(Locale.US,formatArtUrl,"storm");
         } else if (weatherId >= 300 && weatherId <= 321) {
-            return context.getString(R.string.format_art_url, "light_rain");
+//            return context.getString(R.string.format_art_url, "light_rain");
+            return String.format(Locale.US,formatArtUrl,"light_rain");
         } else if (weatherId >= 500 && weatherId <= 504) {
-            return context.getString(R.string.format_art_url, "rain");
+//            return context.getString(R.string.format_art_url, "rain");
+            return String.format(Locale.US,formatArtUrl,"rain");
         } else if (weatherId == 511) {
-            return context.getString(R.string.format_art_url, "snow");
+//            return context.getString(R.string.format_art_url, "snow");
+            return String.format(Locale.US,formatArtUrl,"snow");
         } else if (weatherId >= 520 && weatherId <= 531) {
-            return context.getString(R.string.format_art_url, "rain");
+//            return context.getString(R.string.format_art_url, "rain");
+            return String.format(Locale.US,formatArtUrl,"rain");
         } else if (weatherId >= 600 && weatherId <= 622) {
-            return context.getString(R.string.format_art_url, "snow");
+//            return context.getString(R.string.format_art_url, "snow");
+            return String.format(Locale.US,formatArtUrl,"snow");
         } else if (weatherId >= 701 && weatherId <= 761) {
-            return context.getString(R.string.format_art_url, "fog");
+//            return context.getString(R.string.format_art_url, "fog");
+            return String.format(Locale.US,formatArtUrl,"fog");
         } else if (weatherId == 761 || weatherId == 781) {
-            return context.getString(R.string.format_art_url, "storm");
+//            return context.getString(R.string.format_art_url, "storm");
+            return String.format(Locale.US,formatArtUrl,"storm");
         } else if (weatherId == 800) {
-            return context.getString(R.string.format_art_url, "clear");
+//            return context.getString(R.string.format_art_url, "clear");
+            return String.format(Locale.US,formatArtUrl,"clear");
         } else if (weatherId == 801) {
-            return context.getString(R.string.format_art_url, "light_clouds");
+//            return context.getString(R.string.format_art_url, "light_clouds");
+            return String.format(Locale.US,formatArtUrl,"light_clouds");
         } else if (weatherId >= 802 && weatherId <= 804) {
-            return context.getString(R.string.format_art_url, "clouds");
+//            return context.getString(R.string.format_art_url, "clouds");
+            return String.format(Locale.US,formatArtUrl,"clouds");
         }
         return null;
     }

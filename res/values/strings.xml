@@ -19,7 +19,7 @@
     <string name="pref_unit_default">metric</string>
     <string name="pref_unit_imperial">imperial</string>
     <string name="pref_location_status_key" translatable="false">loc-status</string>
-    <string name="format_art_url" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_ <xliff:g id="description">%s</xliff:g>.png</string>
+    <!--<string name="format_art_url" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_ <xliff:g id="description">%s</xliff:g>.png</string>-->
 
     <string name="pref_location_error_description">Invalid Location (<xliff:g id="location_setting">%1$s</xliff:g>)"</string>
     <string name="pref_location_unknown_description">Validating Location... (<xliff:g id="location_setting">%1$s</xliff:g>)"</string>
@@ -36,6 +36,22 @@
         <item>metric</item>
         <item>imperial</item>
     </string-array>
+
+    <string-array name="icon_list">
+        <item>@string/pref_art_pack_sunrise</item>
+        <item>@string/pref_art_pack_cute_dogs</item>
+    </string-array>
+
+    <string-array name="icon_list_options">
+        <item>SunRise</item>
+        <item>Cute dogs</item>
+    </string-array>
+
+
+    + <string name="pref_art_pack_sunrise" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_%s.png</string>
+
+    + <string name="pref_art_pack_cute_dogs" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-mdpi/art_%s.png</string>
+
     <string name="temperature_units">Temperature Units</string>
     <string name="show_location">Map Location</string>
     <string name="share_weather">Share Weather</string>
@@ -85,5 +101,9 @@ Wind: <xliff:g id="speed">%1$1.0f</xliff:g> km/h <xliff:g id="direction">%2$s</x
 <string name="format_notification">
 Forecast: <xliff:g id="condition">%1$s</xliff:g> High: <xliff:g id="high">%2$s</xliff:g> Low: <xliff:g id="low">%3$s</xliff:g>
 </string>
+    <string name="icon_pack">Icon packs</string>
+    <string name="pref_select_icon_pack">Select Icon pack</string>
+    <string name="pref_icon_pack_default_value">@string/pref_art_pack_sunrise</string>
+    <string name="pref_icon_pack_key">icon_pack</string>
 
 </resources>

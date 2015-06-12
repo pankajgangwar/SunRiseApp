@@ -64,6 +64,7 @@ public class SettingsActivity extends AppCompatActivity
 				
 				bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_location_key)));
 				bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_temp_units_key)));
+                bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_icon_pack_key)));
 			}
 
             @Override
@@ -101,6 +102,8 @@ public class SettingsActivity extends AppCompatActivity
                 if(key.equals(getString(R.string.pref_location_key))){
                     SunRiseSyncAdapter.syncImmediately(getActivity());
                 } else if(key.equals(getString(R.string.pref_temp_units_key))){
+                    getActivity().getContentResolver().notifyChange(WeatherContract.WeatherEntry.CONTENT_URI,null);
+                } else if(key.equals(getString(R.string.pref_icon_pack_key))){
                     getActivity().getContentResolver().notifyChange(WeatherContract.WeatherEntry.CONTENT_URI,null);
                 }
             }
