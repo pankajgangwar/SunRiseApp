@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/home/iriemo/NooBro_Workspace/BangaloreWeather/res/values-sw600dp/styles.xml -->
-    <eat-comment/>
-    <style name="ForecastListStyle">
-        <item name="android:choiceMode">singleChoice</item>
-    </style>
-</resources>
