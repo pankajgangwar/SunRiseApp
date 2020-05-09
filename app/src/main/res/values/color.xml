@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="app_primary_color">#29b6f6</color>
+    
+    <color name="app_primary_color_dark">#03a9f4</color>
+    
+    <color name="red_color">#e51616</color>
+    
+    <color name="green_color">#238341</color>
+     
+    <color name="blue_color">#198cff</color>
+    
+    <color name="grey">#cccccc</color>
+		
+	<color name="weather_light_blue">#ff64c2f4</color>
+	
+	<color name="text_medium">#646464</color>
+	
+	<color name="accent_color_blue">#b3e5fc</color>
+
+</resources>
