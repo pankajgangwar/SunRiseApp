@@ -1,78 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/app_primary_color"
-              android:minHeight="?android:attr/listPreferredItemHeight"
-              android:orientation="horizontal"
-              android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="weather"
+            type="com.example.weather.model.Weather" />
+
+    </data>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="7"
-        android:gravity="left"
-        android:orientation="vertical"
-        android:paddingLeft="32dp">
+        android:background="@color/app_primary_color"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:paddingTop="56dp"
+        android:paddingBottom="62dp">
 
-        <TextView
-            android:id="@+id/list_item_date_textview"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Today, December 19"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white"/>
+            android:layout_weight="7"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="32dp">
 
-        <TextView
-            android:id="@+id/list_item_high_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="23"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white"
-            android:textSize="40sp"/>
+            <TextView
+                android:id="@+id/list_item_date_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="Roboto-thin"
+                android:text="@{weather.date}"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/list_item_low_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="19"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/white"
-            android:textSize="26sp"/>
+            <TextView
+                android:id="@+id/list_item_high_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="Roboto-Black"
+                android:text="@{weather.maxTemp}"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textSize="96sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/list_item_low_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="Roboto-thin"
+                android:text="@{weather.minTemp}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/list_item_location_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="Roboto-thin"
+                android:text="@{weather.location}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textSize="36sp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/list_item_forecast_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@{weather.description}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-
-        <ImageView
-            android:id="@+id/list_item_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:adjustViewBounds="true"/>
-
-        <TextView
-            android:id="@+id/list_item_forecast_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Clear"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/white"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</layout>

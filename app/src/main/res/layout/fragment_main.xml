@@ -1,28 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/activity_main_swipe_refresh_layout"
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isLoading"
+            type="boolean"/>
+        <variable
+            name="weatherViewModel"
+            type="com.example.weather.viewmodel.WeatherListViewModel"/>
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/listview_forecast"
-            style="@style/ForecastListStyle"
+        <FrameLayout
+            android:id="@+id/comments_list_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listview_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                app:visibleGone="@{!isLoading}" />
 
-    <TextView
-        android:id="@+id/emptyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:padding="16dp"
-        android:text="No weather information Available"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_medium" />
-</FrameLayout>
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/error_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@android:color/holo_red_light"
+            android:orientation="vertical"
+            app:visibleGone="@{isLoading}">
+
+            <TextView
+                android:id="@+id/emptyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="50dp"
+                android:textSize="50sp"
+                android:textAlignment="center"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/white"
+                android:text="Something went wrong at our end !"/>
+
+            <Button
+                android:id="@+id/retry_button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_margin="50dp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/darker_gray"
+                android:text="RETRY" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>
