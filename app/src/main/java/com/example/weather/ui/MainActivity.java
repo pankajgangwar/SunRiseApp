@@ -12,7 +12,7 @@ import androidx.work.WorkManager;
 
 import com.example.weather.WeatherApp;
 import com.example.weather.model.Weather;
-import com.example.weather.repository.db.remotedata.FetchWeatherWorker;
+import com.example.weather.repository.remotedata.FetchWeatherWorker;
 import com.example.weather.R;
 
 import java.util.concurrent.ExecutorService;

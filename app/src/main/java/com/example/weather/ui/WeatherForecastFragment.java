@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
-import com.example.weather.repository.db.remotedata.FetchWeatherWorker;
+import com.example.weather.repository.remotedata.FetchWeatherWorker;
 import com.example.weather.R;
 import com.example.weather.databinding.FragmentMainBinding;
 import com.example.weather.repository.db.entity.WeatherEntity;

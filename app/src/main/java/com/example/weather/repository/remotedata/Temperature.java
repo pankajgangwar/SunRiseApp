@@ -1,4 +1,4 @@
-package com.example.weather.repository.db.remotedata;
+package com.example.weather.repository.remotedata;
 
 import com.google.gson.annotations.SerializedName;
 
