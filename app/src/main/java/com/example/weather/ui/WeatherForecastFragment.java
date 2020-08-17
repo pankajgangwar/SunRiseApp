@@ -1,7 +1,6 @@
 package com.example.weather.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +11,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.work.Configuration;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
-import com.example.weather.FetchWeatherWorker;
+import com.example.weather.repository.db.remotedata.FetchWeatherWorker;
 import com.example.weather.R;
 import com.example.weather.databinding.FragmentMainBinding;
-import com.example.weather.db.entity.WeatherEntity;
+import com.example.weather.repository.db.entity.WeatherEntity;
 import com.example.weather.viewmodel.WeatherListViewModel;
 import java.util.List;
 

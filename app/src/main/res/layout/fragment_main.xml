@@ -26,8 +26,8 @@
                 android:layout_height="match_parent"
                 app:layoutManager="LinearLayoutManager"
                 app:visibleGone="@{!isLoading}" />
-
         </FrameLayout>
+
         <LinearLayout
             android:id="@+id/error_view"
             android:layout_width="match_parent"
@@ -60,7 +60,6 @@
                 android:background="@android:color/darker_gray"
                 android:text="RETRY" />
         </LinearLayout>
-
     </FrameLayout>
 
 

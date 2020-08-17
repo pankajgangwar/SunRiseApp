@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.weather.db;
+package com.example.weather.repository.db;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;

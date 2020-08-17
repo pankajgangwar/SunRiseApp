@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.example.weather.db;
+package com.example.weather.repository.db;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.room.Room;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.example.weather.db.dao.WeatherDao;
-import com.example.weather.db.entity.WeatherEntity;
+import com.example.weather.repository.db.dao.WeatherDao;
+import com.example.weather.repository.db.entity.WeatherEntity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -37,7 +37,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Test the implementation of {@link com.example.weather.db.dao.WeatherDao}
+ * Test the implementation of {@link com.example.weather.repository.db.dao.WeatherDao}
  */
 @RunWith(AndroidJUnit4.class)
 public class WeatherDaoTest {

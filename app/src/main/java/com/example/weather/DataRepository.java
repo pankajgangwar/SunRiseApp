@@ -1,13 +1,10 @@
 package com.example.weather;
 
-import android.content.Context;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import androidx.room.Room;
 
-import com.example.weather.db.WeatherDatabase;
-import com.example.weather.db.entity.WeatherEntity;
+import com.example.weather.repository.db.WeatherDatabase;
+import com.example.weather.repository.db.entity.WeatherEntity;
 
 import java.util.List;
 

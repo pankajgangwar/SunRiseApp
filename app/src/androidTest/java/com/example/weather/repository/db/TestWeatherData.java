@@ -1,8 +1,7 @@
-package com.example.weather.db;
+package com.example.weather.repository.db;
 
-import com.example.weather.db.entity.WeatherEntity;
+import com.example.weather.repository.db.entity.WeatherEntity;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 /**

@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import com.example.weather.DataRepository;
 import com.example.weather.WeatherApp;
-import com.example.weather.db.entity.WeatherEntity;
+import com.example.weather.repository.db.entity.WeatherEntity;
 
 import java.util.List;
 

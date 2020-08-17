@@ -46,6 +46,9 @@ dependencies {
     implementation deps.material
     implementation deps.cardview
 
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+
     // Architecture components
     implementation deps.lifecycle.runtime
     annotationProcessor deps.lifecycle.compiler
