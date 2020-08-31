@@ -45,6 +45,7 @@ dependencies {
     implementation deps.fragment.runtime
     implementation deps.material
     implementation deps.cardview
+    implementation deps.paging
 
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
@@ -52,6 +53,8 @@ dependencies {
     // Architecture components
     implementation deps.lifecycle.runtime
     annotationProcessor deps.lifecycle.compiler
+
+    implementation deps.preferences
 
 
     // Dependencies for local unit tests

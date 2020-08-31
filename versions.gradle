@@ -52,7 +52,7 @@ versions.mockito_android = "2.25.0"
 versions.mockwebserver = "3.8.1"
 versions.navigation = "2.3.0-alpha01"
 versions.okhttp_logging_interceptor = "3.9.0"
-versions.paging = "2.1.1"
+versions.paging = "2.1.2"
 versions.recyclerview = "1.0.0"
 versions.retrofit = "2.3.0"
 versions.robolectric = "4.2"
@@ -62,7 +62,8 @@ versions.rxjava2 = "2.1.3"
 versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.truth = "1.0.1"
-versions.work = "2.2.0"
+versions.work = "2.3.0"
+versions.preferences = "1.1.1"
 ext.versions = versions
 
 def build_versions = [:]
@@ -180,7 +181,7 @@ deps.navigation = navigation
 
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 
-deps.paging_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
+deps.paging = "androidx.paging:paging-runtime:$versions.paging"
 
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
@@ -215,6 +216,8 @@ work.testing = "androidx.work:work-testing:$versions.work"
 work.firebase = "androidx.work:work-firebase:$versions.work"
 work.runtime_ktx = "androidx.work:work-runtime-ktx:$versions.work"
 deps.work = work
+
+deps.preferences = "androidx.preference:preference:$versions.preferences"
 
 ext.deps = deps
 

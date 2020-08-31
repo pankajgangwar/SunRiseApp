@@ -1,13 +1,22 @@
 package com.example.weather.repository.remotedata;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.LiveData;
+import androidx.work.WorkManager;
+import androidx.work.ForegroundInfo;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.example.weather.R;
 import com.example.weather.WeatherApp;
 import com.example.weather.repository.db.WeatherDatabase;
 import com.example.weather.repository.db.entity.WeatherEntity;
@@ -27,8 +36,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -98,7 +105,10 @@ public class FetchWeatherWorker extends Worker {
 
                         Date date = new Date(w.getDate() * 1000L);
 
-                        entity.mDate = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH).format(date);
+                        // Date, stored as Text with format yyyy-MM-dd
+                        //entity.mDate = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH).format(date);
+                        entity.mDate = w.getDate();
+                        Log.d("Time","Time from server " + w.getDate());
                         entity.mLocation = city.getCityName();
                         entity.mMaxTemp = getTemperatureInCelsius(w.getTemperature().getMaxTemp());
                         entity.mMinTemp = getTemperatureInCelsius(w.getTemperature().getMinTemp());
@@ -110,6 +120,7 @@ public class FetchWeatherWorker extends Worker {
                         @Override
                         public void run() {
                             final WeatherDatabase db = WeatherDatabase.getInstance(getApplicationContext());
+                            // Delete obsolete data which are older than today
                             db.runInTransaction(() -> db.weather().insertAll(entityList));
                         }
                     });
@@ -294,7 +305,8 @@ public class FetchWeatherWorker extends Worker {
 
             WeatherEntity entity = new WeatherEntity();
 
-            entity.mDate = simpleDate;
+            entity.mDate = epocTime;
+            //entity.mDate = simpleDate;
             entity.mLocation = locationSettings;
             entity.mMaxTemp = high;
             entity.mMinTemp = low;

@@ -1,11 +1,13 @@
 package com.example.weather;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class Util {
 
@@ -38,12 +40,14 @@ public class Util {
         }
     }
 
-    public static String getFriendlyDayString(Context context, String dateStr) {
-
+    public static String getFriendlyDayString(Context context, Long timeInMs) {
+        Log.d("Time","time from DB " + timeInMs);
+        Date convertedDate = new Date(timeInMs * 1000L);
+        // Date, stored as Text with format yyyy-MM-dd
+        String dateStr = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH).format(convertedDate);
         Date todayDate = new Date();
         String todayStr = getDbDateString(Calendar.getInstance().getTime());
         Date inputDate = getDateFromDb(dateStr);
-
         if (todayStr.equals(dateStr)) {
             String today = context.getString(R.string.today);
             int formatId = R.string.format_full_friendly_date;

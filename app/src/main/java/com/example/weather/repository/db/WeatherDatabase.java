@@ -7,11 +7,13 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.weather.repository.db.dao.WeatherDao;
 import com.example.weather.repository.db.entity.WeatherEntity;
 
-@Database(entities = {WeatherEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {WeatherEntity.class}, version = 2, exportSchema = false)
 public abstract class WeatherDatabase extends RoomDatabase {
 
     public abstract WeatherDao weather();
@@ -25,7 +27,6 @@ public abstract class WeatherDatabase extends RoomDatabase {
             if (sInstance == null) {
                 sInstance = Room.databaseBuilder(context.getApplicationContext(),
                         WeatherDatabase.class, "Weather.db")
-
                         .build();
             }
             return sInstance;

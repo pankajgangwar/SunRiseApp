@@ -12,8 +12,8 @@ import java.util.List;
 @Dao
 public interface WeatherDao {
 
-    @Query("SELECT * FROM " + WeatherEntity.TABLE_NAME)
-    LiveData<List<WeatherEntity>> loadWeatherForecast();
+    @Query("SELECT * FROM " + WeatherEntity.TABLE_NAME + " WHERE " + WeatherEntity.COLUMN_DATE_TEXT + " >= :currentTimeMs" + " LIMIT 7")
+    LiveData<List<WeatherEntity>> loadWeatherForecast(long currentTimeMs);
 
     @Query("SELECT * FROM " + WeatherEntity.TABLE_NAME + " WHERE " + WeatherEntity.COLUMN_ID + " = :id")
     LiveData<WeatherEntity> loadForecastById(long id);
@@ -24,7 +24,7 @@ public interface WeatherDao {
     /**
      * Inserts a weatherEntity into the table.
      *
-     * @param weatherEntity A new weather.
+     * @param weatherEntity A new weather.F
      * @return The row ID of the newly inserted weatherEntity.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)

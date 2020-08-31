@@ -53,7 +53,7 @@ public class WeatherForecastFragment extends Fragment {
     }
 
     private void updateUI(WeatherListViewModel viewModel){
-        viewModel.getWeatherForecast().observe(this, new Observer<List<WeatherEntity>>() {
+        viewModel.getWeatherForecast().observe(getViewLifecycleOwner() , new Observer<List<WeatherEntity>>() {
             @Override
             public void onChanged(List<WeatherEntity> weatherEntities) {
                 if(weatherEntities != null && weatherEntities.size() > 0){

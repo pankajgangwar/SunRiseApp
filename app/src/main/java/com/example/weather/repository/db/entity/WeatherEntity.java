@@ -44,7 +44,7 @@ public class WeatherEntity implements Weather {
 
 
     @ColumnInfo(name = WeatherEntity.COLUMN_DATE_TEXT)
-    public String mDate;
+    public Long mDate;
 
     // Short description and long description of the weather, as provided by API.
     // e.g "clear" vs "sky is clear".
@@ -66,7 +66,7 @@ public class WeatherEntity implements Weather {
     }
 
     @Ignore
-    public WeatherEntity(long id, String mDate, String mShortDesc, double mMinTemp, double mMaxTemp, String mLocation) {
+    public WeatherEntity(long id, Long mDate, String mShortDesc, double mMinTemp, double mMaxTemp, String mLocation) {
         this.id = id;
         this.mDate = mDate;
         this.mShortDesc = mShortDesc;

@@ -22,6 +22,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     List<? extends Weather> mForecastList;
     private final int VIEW_TYPE_TODAY = 0;
     private final int VIEW_TYPE_FUTURE_DAY = 1;
+    private int limit = 7;
 
     public WeatherAdapter() {
         setHasStableIds(true);
@@ -109,9 +110,11 @@ public class WeatherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return VIEW_TYPE_FUTURE_DAY;
     }
 
+
     @Override
     public int getItemCount() {
-        return mForecastList == null ? 0 : mForecastList.size();
+        if(mForecastList == null) return 0;
+        return mForecastList.size();
     }
 
 

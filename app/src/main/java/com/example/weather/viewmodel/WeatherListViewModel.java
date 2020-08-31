@@ -4,12 +4,17 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+
 import com.example.weather.DataRepository;
 import com.example.weather.WeatherApp;
 import com.example.weather.repository.db.entity.WeatherEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherListViewModel extends AndroidViewModel {
@@ -27,7 +32,6 @@ public class WeatherListViewModel extends AndroidViewModel {
 
         mRepository = ((WeatherApp) application).getRepository();
         LiveData<List<WeatherEntity>> weather_forecast = mRepository.getForecast();
-
         mObservableForecast.addSource(weather_forecast, mObservableForecast::setValue);
     }
 
